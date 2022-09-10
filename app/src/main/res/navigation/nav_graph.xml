@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/createPassword"
+        android:name="com.tahasanli.secretgallery.views.CreatePassword"
+        android:label="createpassword"
+        tools:layout="@layout/createpassword" >
+        <action
+            android:id="@+id/action_createPassword_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addScreen"
+        android:name="com.tahasanli.secretgallery.views.AddScreen"
+        android:label="addscreen"
+        tools:layout="@layout/addscreen" >
+        <action
+            android:id="@+id/action_addScreen_to_mainScreen"
+            app:destination="@id/mainScreen" />
+        <argument
+            android:name="index"
+            app:argType="integer"
+            android:defaultValue="-1" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreen"
+        android:name="com.tahasanli.secretgallery.views.MainScreen"
+        android:label="mainscreen"
+        tools:layout="@layout/mainscreen" >
+        <action
+            android:id="@+id/action_mainScreen_to_addScreen"
+            app:destination="@id/addScreen" />
+        <action
+            android:id="@+id/action_mainScreen_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.tahasanli.secretgallery.LoginFragment"
+        android:label="loginfragment"
+        tools:layout="@layout/loginfragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_createPassword"
+            app:destination="@id/createPassword" />
+        <action
+            android:id="@+id/action_loginFragment_to_mainScreen"
+            app:destination="@id/mainScreen" />
+    </fragment>
+</navigation>
